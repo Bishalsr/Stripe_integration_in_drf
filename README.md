@@ -13,6 +13,9 @@ This repository contains a Django project with:
 - Example account registration and subscription flow
 - A Project viewset for basic CRUD
 
+  To get the webhook key write this code in your CLI.
+- stripe listen --forward-to localhost:8000/api/stripe/webhook/
+
 ## Requirements
 
 - Python 3.10+ (or the version your project supports)
