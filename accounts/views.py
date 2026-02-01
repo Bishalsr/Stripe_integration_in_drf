@@ -14,12 +14,17 @@ from django.utils import timezone
 from datetime import timedelta
 from .models import Subscription
 from django.contrib.auth.models import User
+from decouple import config
 
+
+STRIPE_PRICE_FREE = config("STRIPE_PRICE_FREE")
+STRIPE_PRICE_PRO = config("STRIPE_PRICE_PRO")
+STRIPE_PRICE_PREM = config("STRIPE_PRICE_PREM")
 
 PRICE_MAPPING = {
-    "free": "price_1SthW5RrDvQwWsfmnWR86DUZ",
-    "pro": "price_1SthWrRrDvQwWsfmlvpVkue5",         
-    "premium": "price_1SthXiRrDvQwWsfmT60Lwd1l",    
+    "free": STRIPE_PRICE_FREE,
+    "pro": STRIPE_PRICE_PRO,
+    "premium": STRIPE_PRICE_PREM,
 }
 
 @csrf_exempt
@@ -76,8 +81,7 @@ def create_checkout_session(request):
         mode='subscription',
         customer_email=request.user.email,
         line_items=[{'price': price_id, 'quantity': 1}],
-        # success_url='http://localhost:8000/success/',
-        # cancel_url='http://localhost:8000/cancel/',
+     
         success_url='http://localhost:8000/api/accounts/success?session_id={CHECKOUT_SESSION_ID}',
         cancel_url='http://localhost:8000/api/accounts/cancel/',
         metadata={
