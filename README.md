@@ -11,7 +11,7 @@ This repository contains a Django project with:
 - JWT authentication (Simple JWT)
 - Stripe Checkout + webhook handling
 - Example account registration and subscription flow
-- A Project viewset for basic CRUD
+- A Project viewset for basic CRUD......
  To get the webhook key write this code in your CLI.
 ```bash
 stripe listen --forward-to localhost:8000/api/stripe/webhook/
