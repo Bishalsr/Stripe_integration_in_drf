@@ -12,9 +12,11 @@ This repository contains a Django project with:
 - Stripe Checkout + webhook handling
 - Example account registration and subscription flow
 - A Project viewset for basic CRUD
-
-  To get the webhook key write this code in your CLI.
-- stripe listen --forward-to localhost:8000/api/stripe/webhook/
+ To get the webhook key write this code in your CLI.
+```bash
+stripe listen --forward-to localhost:8000/api/stripe/webhook/
+```
+  
 
 ## Requirements
 
