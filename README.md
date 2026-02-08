@@ -215,4 +215,4 @@ python manage.py test
 - Add tests for any new/changed behavior
 - Open a pull request describing the change
 
-Add a LICENSE file if you want to publish under a specific license (e.g., MIT).
+ LICENSE MIT
